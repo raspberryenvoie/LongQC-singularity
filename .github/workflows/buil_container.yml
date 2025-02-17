@@ -1,0 +1,25 @@
+name: Build singularity container
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Singularity
+        run: |
+          sudo apt-get install -y singularity-container
+      - name: Build container
+        run: |
+          sudo singularity build LongQC.sif LongQC.def
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: LongQC.sif
+          path: LongQC.sif
+          
