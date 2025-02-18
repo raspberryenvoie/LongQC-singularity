@@ -8,5 +8,5 @@ LongQC.sif can be downloaded from the [releases page](https://github.com/raspber
 ## II. Usage
 
 ```bash
-singularity exec LongQC.sif longQC.py
+singularity run LongQC.sif <parameters>
 ```
